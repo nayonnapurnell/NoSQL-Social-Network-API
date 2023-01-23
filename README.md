@@ -17,13 +17,10 @@
 
 ## Tools
 ------
-  - HTML
-  - CSS
-  - Javascript
-  - Node
-  - Object-Oriented Programming
-  - NPM
-  - Jest
+  - ExpressJS
+  - Mongoose
+  - MongoDB
+  - Mongoose ODM
 
 ## Setup 
 ------
