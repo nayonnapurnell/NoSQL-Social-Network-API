@@ -30,7 +30,30 @@ const userSchema = new Schema(
           ref: 'User',
         },
       ],
+    },
+    {
+        toJSON: {
+            virtuals: true,
+          },
+          id: false,
     }
 );
 
-module.exports = userSchema;
+// Virtual property `friendCount` that gets the amount of friends per user
+userSchema
+  .virtual('friendCount')
+  // Getter
+  .get(function () {
+    return `${this.friends}`;
+  })
+  // Setter to set the first and last name
+  .set(function (v) {
+    const friends = v.aggregate();
+    this.set({ friends });
+  });
+  
+ 
+// Initialize the User model
+const User = model('user', userSchema);
+
+module.exports = User;
