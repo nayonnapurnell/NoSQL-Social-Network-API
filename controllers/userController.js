@@ -76,7 +76,7 @@ module.exports = {
   createFriend(req, res) {
     User.findOneAndUpdate(
                { _id: req.params.userId },
-               { $push: { friends: req.params.friendId } },
+               { push: { friends: req.params.friendId } },
                { new: true }
       ).then((user) =>
          !user
@@ -90,5 +90,4 @@ module.exports = {
          res.status(500).json(err);
        });
    },
-
 }
