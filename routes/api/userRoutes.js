@@ -11,7 +11,9 @@ const {
   } = require('../../controllers/userController.js');
 
   // /api/users
-router.route('/').get(getUsers).post(createUser);
+router.route('/')
+.get(getUsers)
+.post(createUser);
 
   // /api/users/:userId
 router
@@ -23,10 +25,8 @@ router
 
 // /api/friends
 router
-.route('/:userId/friends')
-.post(createFriend)
-router
 .route('/:userId/friends/:friendId')
+.post(createFriend)
 .delete(deleteFriend);
 
 

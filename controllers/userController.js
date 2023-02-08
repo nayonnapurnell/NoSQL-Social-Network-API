@@ -74,9 +74,10 @@ module.exports = {
   },
   //create a friend
   createFriend(req, res) {
+    console.log("Create friend route")
     User.findOneAndUpdate(
                { _id: req.params.userId },
-               { push: { friends: req.params.friendId } },
+               { $push: { friends: req.params.friendId } },
                { new: true }
       ).then((user) =>
          !user
